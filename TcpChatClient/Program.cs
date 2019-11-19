@@ -18,16 +18,22 @@ namespace TcpChatClient
 
             while (true)
             {
-                
                 string message = Console.ReadLine();
                 sw.WriteLine(message);
                 string message1 = st.ReadLine();
                 Console.WriteLine("Server: " + message1);
                 
+                
+                if (message1 == "EXIT")
+                {
+                    Console.ReadLine();
+                    ns.Close();
+                    clientSocket.Close();
+                    return;
+                }
+
             }
-            Console.ReadLine();
-            ns.Close();
-            clientSocket.Close();
+            
 
         }
     }
